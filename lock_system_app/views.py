@@ -13,6 +13,7 @@ def get_users(request):
 @api_view(['POST'])
 def add_user(request):
     serializer = RFIDUserSerializer(data=request.data)
+    print(request.data)  # Log the incoming data to check its format
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -43,3 +44,20 @@ def get_access_log(request):
     access_log = AccessLog.objects.all()
     serializer = AccessLogSerializer(access_log, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+def delete_user(request, user_id):
+    """
+    Delete a user by their ID.
+    """
+    try:
+        # Try to get the user object
+        user = RFIDUser.objects.get(user_id=user_id)
+        # Delete the user
+        user.delete()
+        # Return a success response with status 200
+        return Response({"message": "User deleted successfully!"}, status=status.HTTP_200_OK)
+    
+    except RFIDUser.DoesNotExist:
+        # If the user doesn't exist, return a 404 response
+        return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
