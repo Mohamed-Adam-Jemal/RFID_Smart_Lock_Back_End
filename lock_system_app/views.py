@@ -47,9 +47,6 @@ def get_access_log(request):
 
 @api_view(['DELETE'])
 def delete_user(request, user_id):
-    """
-    Delete a user by their ID.
-    """
     try:
         # Try to get the user object
         user = RFIDUser.objects.get(user_id=user_id)
