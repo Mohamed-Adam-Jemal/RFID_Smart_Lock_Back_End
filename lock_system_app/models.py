@@ -6,13 +6,13 @@ class RFIDUser(models.Model):
     rfid_tag = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
-        return self.name, ",", self.user_id
+        return f"{self.username}, {self.user_id}"
 
 class AccessLog(models.Model):
     log_id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=100, null=True, blank=True)
     rfid_tag = models.CharField(max_length=50, null=True)  
-    access_time = models.DateTimeField(auto_now_add=True)  
+    access_time = models.DateTimeField(auto_now_add=True, blank=True)  
 
     def save(self, *args, **kwargs):
         # Fetch the username based on the rfid_tag
