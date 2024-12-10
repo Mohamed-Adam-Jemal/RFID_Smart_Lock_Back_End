@@ -28,7 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '192.168.1.21'
+    '192.168.1.21',
+    '172.16.20.129',
+    '192.168.237.99',
+    '192.168.1.129',
+    '192.168.100.49',
+    '192.168.131.99',
+     '172.16.48.73',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -85,13 +91,26 @@ WSGI_APPLICATION = 'smart_door_lock.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'SmartLock',
+        'USER': 'root',
+        'PASSWORD': 'devwebdb25@25',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
