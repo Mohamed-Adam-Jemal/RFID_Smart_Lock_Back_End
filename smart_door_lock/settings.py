@@ -94,8 +94,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'SmartLock',
-        'USER': 'root',
-        'PASSWORD': 'devwebdb25@25',
+        'USER': '*************',
+        'PASSWORD': '***************',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
