@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!oed#l=h%c4w=lx!oynwd**vih4ff3dw5_d@^i=7=g&n3sahcr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
   '*'
@@ -94,8 +94,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'SmartLock',
-        'USER': '*************',
-        'PASSWORD': '***************',
+        'USER': 'root',
+        'PASSWORD': 'devwebdb25@25',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
